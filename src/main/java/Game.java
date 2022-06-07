@@ -127,13 +127,13 @@ public class Game {
                 char[] nextCoordinate = arrayCoordinates[i + 1].toCharArray();
                 char[] endCoordinate = arrayCoordinates[arrayCoordinates.length - 1].toCharArray();
                 if (beginCoordinate[0] == endCoordinate[0]) {
-                    if (!(nextCoordinate[1] - duringCoordinate[1] == 1 && nextCoordinate[0] == duringCoordinate[0])) {
+                    if (!(Math.abs(nextCoordinate[1] - duringCoordinate[1]) == 1 && nextCoordinate[0] == duringCoordinate[0])) {
                         log.info("Wrong coordinates! Try again.");
                         return false;
                     }
                 } else {
                     if (beginCoordinate[1] == endCoordinate[1]) {
-                        if (!(nextCoordinate[0] - duringCoordinate[0] == 1 && nextCoordinate[1] == duringCoordinate[1])) {
+                        if (!(Math.abs(nextCoordinate[0] - duringCoordinate[0]) == 1 && nextCoordinate[1] == duringCoordinate[1])) {
                             log.info("Wrong coordinates! Try again.");
                             return false;
                         }
