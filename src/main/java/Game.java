@@ -64,7 +64,7 @@ public class Game {
                 if (isCoordinatesValid(Ship.getFOUR_DECK(), coordinates)) {
                     if (isCoordinateOrder(coordinates)) {
                         player.getShips()[i] = new Ship("BATTLESHIP", coordinates, Ship.getFOUR_DECK());
-                        if (player.addShipsOnCanvas()) {
+                        if (player.addShipsOnCanvas(coordinates)) {
                             player.getCellsOfOwnFigures().drawCanvas();
                         } else {
                             i--;
@@ -83,7 +83,7 @@ public class Game {
                 if (isCoordinatesValid(Ship.getTHREE_DECK(), coordinates)) {
                     if (isCoordinateOrder(coordinates)) {
                         player.getShips()[i] = new Ship("CRUISER", coordinates, Ship.getTHREE_DECK());
-                        if (player.addShipsOnCanvas()) {
+                        if (player.addShipsOnCanvas(coordinates)) {
                             player.getCellsOfOwnFigures().drawCanvas();
                         } else {
                             i--;
@@ -101,7 +101,7 @@ public class Game {
                 if (isCoordinatesValid(Ship.getTWO_DECK(), coordinates)) {
                     if (isCoordinateOrder(coordinates)) {
                         player.getShips()[i] = new Ship("DESTROYER", coordinates, Ship.getTWO_DECK());
-                        if (player.addShipsOnCanvas()) {
+                        if (player.addShipsOnCanvas(coordinates)) {
                             player.getCellsOfOwnFigures().drawCanvas();
                         } else {
                             i--;
@@ -118,7 +118,7 @@ public class Game {
                 coordinates = scanner.nextLine().toUpperCase();
                 if (isCoordinatesValid(Ship.getONE_DECK(), coordinates)) {
                     player.getShips()[i] = new Ship("TORPEDO BOAT", coordinates, Ship.getONE_DECK());
-                    if (player.addShipsOnCanvas()) {
+                    if (player.addShipsOnCanvas(coordinates)) {
                         player.getCellsOfOwnFigures().drawCanvas();
                     } else {
                         i--;

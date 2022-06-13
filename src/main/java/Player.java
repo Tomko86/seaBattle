@@ -24,10 +24,8 @@ public class Player {
         ships = new Ship[COUNT_OF_SHIPS];
     }
 
-    public boolean addShipsOnCanvas() {
-        for (Ship ship : ships) {
-            if (ship != null) {
-                String[] getCoordinateOfShip = ship.getCoordinates().split(",");
+    public boolean addShipsOnCanvas(String coordinate) {
+                String[] getCoordinateOfShip = coordinate.split(",");
                 char[] beginCell = getCoordinateOfShip[0].toCharArray();
                 int beginX = Canvas.getPREFIX_OF_VIEW_CANVAS().indexOf(beginCell[0]) - 1;
                 int beginY = Character.getNumericValue(beginCell[1]) - 1;
@@ -47,10 +45,7 @@ public class Player {
                     return false;
                 }
             }
-        }
-        log.warn("Wrong! Unknown problem!");
-        return false;
-    }
+
 
     private boolean isCheckXAndY(int beginY, int beginX) {
         if (cellsOfOwnFigures.getCells()[beginY][beginX] == Figure.EMPTY.getView()) {
@@ -61,7 +56,7 @@ public class Player {
                     return true;
                 }
             }
-            if (beginY == 0) {
+            if (beginY == 0 && beginX != 8) {
                 if (cellsOfOwnFigures.getCells()[beginY][beginX - 1] == Figure.EMPTY.getView() &&
                         cellsOfOwnFigures.getCells()[beginY + 1][beginX - 1] == Figure.EMPTY.getView() &&
                         cellsOfOwnFigures.getCells()[beginY + 1][beginX] == Figure.EMPTY.getView() &&
@@ -77,7 +72,7 @@ public class Player {
                     return true;
                 }
             }
-            if (beginX == 0) {
+            if (beginX == 0 && beginY!= 8) {
                 if (cellsOfOwnFigures.getCells()[beginY - 1][beginX] == Figure.EMPTY.getView() &&
                         cellsOfOwnFigures.getCells()[beginY - 1][beginX + 1] == Figure.EMPTY.getView() &&
                         cellsOfOwnFigures.getCells()[beginY][beginX + 1] == Figure.EMPTY.getView() &&
@@ -86,7 +81,7 @@ public class Player {
                     return true;
                 }
             }
-            if (beginY != 0 && beginX != 0) {
+            if (beginY != 0 && beginX != 0 && beginX != 8 && beginY != 8) {
                 if (cellsOfOwnFigures.getCells()[beginY + 1][beginX - 1] == Figure.EMPTY.getView() &&
                         cellsOfOwnFigures.getCells()[beginY][beginX - 1] == Figure.EMPTY.getView() &&
                         cellsOfOwnFigures.getCells()[beginY - 1][beginX - 1] == Figure.EMPTY.getView() &&
@@ -98,7 +93,7 @@ public class Player {
                     return true;
                 }
             }
-            if (beginX == 8) {
+            if (beginX == 8 && beginY != 0) {
                 if (cellsOfOwnFigures.getCells()[beginY - 1][beginX] == Figure.EMPTY.getView() &&
                         cellsOfOwnFigures.getCells()[beginY - 1][beginX - 1] == Figure.EMPTY.getView() &&
                         cellsOfOwnFigures.getCells()[beginY][beginX - 1] == Figure.EMPTY.getView() &&
@@ -114,7 +109,7 @@ public class Player {
                     return true;
                 }
             }
-            if (beginY == 8) {
+            if (beginY == 8 && beginX != 0) {
                 if (cellsOfOwnFigures.getCells()[beginY][beginX - 1] == Figure.EMPTY.getView() &&
                         cellsOfOwnFigures.getCells()[beginY - 1][beginX - 1] == Figure.EMPTY.getView() &&
                         cellsOfOwnFigures.getCells()[beginY - 1][beginX] == Figure.EMPTY.getView() &&
