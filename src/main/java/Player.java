@@ -40,8 +40,8 @@ public class Player {
                         int x = Canvas.getPREFIX_OF_VIEW_CANVAS().indexOf(charAddressCell.toCharArray()[0]) - 1;
                         int y = Character.getNumericValue(charAddressCell.toCharArray()[1]) - 1;
                         cellsOfOwnFigures.getCells()[y][x] = Figure.LIVE.getView();
-                        return true;
                     }
+                    return true;
                 } else {
                     log.warn("Wrong! The ships should not crosse and touch each other!");
                     return false;
@@ -124,13 +124,10 @@ public class Player {
                 }
             }
             if (beginY == 8 && beginX == 8) {
-                if (cellsOfOwnFigures.getCells()[beginY][beginX - 1] == Figure.EMPTY.getView() &&
+                return cellsOfOwnFigures.getCells()[beginY][beginX - 1] == Figure.EMPTY.getView() &&
                         cellsOfOwnFigures.getCells()[beginY + 1][beginX - 1] == Figure.EMPTY.getView() &&
-                        cellsOfOwnFigures.getCells()[beginY - 1][beginX] == Figure.EMPTY.getView()) {
-                    return true;
-                }
+                        cellsOfOwnFigures.getCells()[beginY - 1][beginX] == Figure.EMPTY.getView();
             }
-            return false;
         }
         return false;
     }
