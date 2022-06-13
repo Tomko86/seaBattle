@@ -130,7 +130,7 @@ public class Player {
     public GameResult makeShot(int x, int y, String coordinateOfCell) {
         if (cellsOfOwnFigures.getCells()[y][x] == Figure.DESTROY.getView() ||
                 cellsOfOwnFigures.getCells()[y][x] == Figure.AWAY.getView()) {
-            return new GameResult(false, "THE SAME SHOT!");
+            return new GameResult(false, Condition.SAME_SHOT);
         } else {
             if (cellsOfOwnFigures.getCells()[y][x] == Figure.LIVE.getView()) {
                 for (Ship ownShip : ships) {
@@ -139,9 +139,9 @@ public class Player {
                             cellsOfOwnFigures.getCells()[y][x] = Figure.DESTROY.getView();
                             countAllCellsShips--;
                             if (countAllCellsShips == 0) {
-                                return new GameResult(true, "KILLED!");
+                                return new GameResult(true, Condition.KILLED);
                             } else {
-                                return new GameResult(false, "KILLED!");
+                                return new GameResult(false, Condition.KILLED);
                             }
                         } else {
                             cellsOfOwnFigures.getCells()[y][x] = Figure.DESTROY.getView();
@@ -149,12 +149,12 @@ public class Player {
                             countAllCellsShips--;
                             if (ownShip.getLength() == 0) {
                                 if (countAllCellsShips == 0) {
-                                    return new GameResult(true, "KILLED!");
+                                    return new GameResult(true, Condition.KILLED);
                                 } else {
-                                    return new GameResult(false, "KILLED!");
+                                    return new GameResult(false, Condition.KILLED);
                                 }
                             } else {
-                                return new GameResult(false, "WOUNDED!");
+                                return new GameResult(false, Condition.WOUNDED);
                             }
 
                         }
@@ -162,7 +162,7 @@ public class Player {
                 }
             } else {
                 cellsOfOwnFigures.getCells()[y][x] = Figure.AWAY.getView();
-                return new GameResult(false, "AWAY!");
+                return new GameResult(false, Condition.AWAY);
             }
         }
         return null;

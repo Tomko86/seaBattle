@@ -6,6 +6,6 @@ import lombok.Data;
 public class GameResult {
 
     private boolean isGameEnded;
-    private String shotResult;
+    private Condition shotResult;
 
 }

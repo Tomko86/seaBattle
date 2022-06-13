@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="76050751-9161-4f94-81c0-329d09de2c70" name="Changes" comment="Fix bug in file Player.java and Game.java (check on crosses ships).">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game.java" afterDir="false" />
+    <list default="true" id="76050751-9161-4f94-81c0-329d09de2c70" name="Changes" comment="Added checking coordinate of shot on validity.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Condition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GameResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameResult.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/avenue/java/spb/seaBattle/Canvas.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/avenue/java/spb/seaBattle/Figure.java" beforeDir="false" />
@@ -23,8 +23,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -166,7 +166,21 @@
       <option name="project" value="LOCAL" />
       <updated>1655130245890</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Fix bug in file Player.java and Game.java (check on crosses ships).">
+      <created>1655137964846</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1655137964846</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Added checking coordinate of shot on validity.">
+      <created>1655138144173</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1655138144173</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -223,6 +237,7 @@
     <MESSAGE value="Added checking for possible ship crossings." />
     <MESSAGE value="Fix bug in file Player.java" />
     <MESSAGE value="Fix bug in file Player.java and Game.java (check on crosses ships)." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix bug in file Player.java and Game.java (check on crosses ships)." />
+    <MESSAGE value="Added checking coordinate of shot on validity." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added checking coordinate of shot on validity." />
   </component>
 </project>
