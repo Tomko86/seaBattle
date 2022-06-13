@@ -80,9 +80,9 @@ public class Game {
                 }
 
             }
-            /*if (i > 0 && i < 3) {
+            if (i > 0 && i < 3) {
                 log.info("  Enter the coordinates of three-deck ship (for example - C1,C2,C3): ");
-                coordinates = scanner.nextLine().toUpperCase();
+                coordinates = SCANNER.nextLine().toUpperCase();
                 if (isCoordinatesValid(Ship.getTHREE_DECK(), coordinates)) {
                     if (isCoordinateOrder(coordinates)) {
                         player.getShips()[i] = new Ship("CRUISER", coordinates, Ship.getTHREE_DECK());
@@ -100,7 +100,7 @@ public class Game {
             }
             if (i > 2 && i < 6) {
                 log.info("  Enter the coordinates of two-deck ship (for example - E1,E2): ");
-                coordinates = scanner.nextLine().toUpperCase();
+                coordinates = SCANNER.nextLine().toUpperCase();
                 if (isCoordinatesValid(Ship.getTWO_DECK(), coordinates)) {
                     if (isCoordinateOrder(coordinates)) {
                         player.getShips()[i] = new Ship("DESTROYER", coordinates, Ship.getTWO_DECK());
@@ -118,7 +118,7 @@ public class Game {
             }
             if (i > 5) {
                 log.info("  Enter the coordinates of one-deck ship (for example - F1): ");
-                coordinates = scanner.nextLine().toUpperCase();
+                coordinates = SCANNER.nextLine().toUpperCase();
                 if (isCoordinatesValid(Ship.getONE_DECK(), coordinates)) {
                     player.getShips()[i] = new Ship("TORPEDO BOAT", coordinates, Ship.getONE_DECK());
                     if (player.addShipsOnCanvas(coordinates)) {
@@ -129,7 +129,7 @@ public class Game {
                 } else {
                     i--;
                 }
-            }*/
+            }
         }
     }
 
