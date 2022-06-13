@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="76050751-9161-4f94-81c0-329d09de2c70" name="Changes" comment="Fix bug in file Player.java">
+    <list default="true" id="76050751-9161-4f94-81c0-329d09de2c70" name="Changes" comment="Fix bug in file Player.java and Game.java (check on crosses ships).">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Player.java" afterDir="false" />
@@ -159,7 +159,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655117624440</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Fix bug in file Player.java and Game.java (check on crosses ships).">
+      <created>1655130245890</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1655130245890</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -215,17 +222,7 @@
     <MESSAGE value="Added the ability to enter coordinates of ship in revers order." />
     <MESSAGE value="Added checking for possible ship crossings." />
     <MESSAGE value="Fix bug in file Player.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix bug in file Player.java" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Player.java</url>
-          <line>133</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Fix bug in file Player.java and Game.java (check on crosses ships)." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix bug in file Player.java and Game.java (check on crosses ships)." />
   </component>
 </project>

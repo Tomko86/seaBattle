@@ -4,9 +4,9 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public class Player {
-    private static int countAllCellsShips = 20;
+    private static int countAllCellsShips = 4;
     @Getter
-    private static final int COUNT_OF_SHIPS = 10;
+    private static final int COUNT_OF_SHIPS = 1;
     @Getter
     private final String name;
     @Getter
@@ -25,26 +25,26 @@ public class Player {
     }
 
     public boolean addShipsOnCanvas(String coordinate) {
-                String[] getCoordinateOfShip = coordinate.split(",");
-                char[] beginCell = getCoordinateOfShip[0].toCharArray();
-                int beginX = Canvas.getPREFIX_OF_VIEW_CANVAS().indexOf(beginCell[0]) - 1;
-                int beginY = Character.getNumericValue(beginCell[1]) - 1;
+        String[] getCoordinateOfShip = coordinate.split(",");
+        char[] beginCell = getCoordinateOfShip[0].toCharArray();
+        int beginX = Canvas.getPREFIX_OF_VIEW_CANVAS().indexOf(beginCell[0]) - 1;
+        int beginY = Character.getNumericValue(beginCell[1]) - 1;
 
-                char[] endCell = getCoordinateOfShip[getCoordinateOfShip.length - 1].toCharArray();
-                int endX = Canvas.getPREFIX_OF_VIEW_CANVAS().indexOf(endCell[0]) - 1;
-                int endY = Character.getNumericValue(endCell[1]) - 1;
-                if (isCheckXAndY(beginY, beginX) && isCheckXAndY(endY, endX)) {
-                    for (String charAddressCell : getCoordinateOfShip) {
-                        int x = Canvas.getPREFIX_OF_VIEW_CANVAS().indexOf(charAddressCell.toCharArray()[0]) - 1;
-                        int y = Character.getNumericValue(charAddressCell.toCharArray()[1]) - 1;
-                        cellsOfOwnFigures.getCells()[y][x] = Figure.LIVE.getView();
-                    }
-                    return true;
-                } else {
-                    log.warn("Wrong! The ships should not crosse and touch each other!");
-                    return false;
-                }
+        char[] endCell = getCoordinateOfShip[getCoordinateOfShip.length - 1].toCharArray();
+        int endX = Canvas.getPREFIX_OF_VIEW_CANVAS().indexOf(endCell[0]) - 1;
+        int endY = Character.getNumericValue(endCell[1]) - 1;
+        if (isCheckXAndY(beginY, beginX) && isCheckXAndY(endY, endX)) {
+            for (String charAddressCell : getCoordinateOfShip) {
+                int x = Canvas.getPREFIX_OF_VIEW_CANVAS().indexOf(charAddressCell.toCharArray()[0]) - 1;
+                int y = Character.getNumericValue(charAddressCell.toCharArray()[1]) - 1;
+                cellsOfOwnFigures.getCells()[y][x] = Figure.LIVE.getView();
             }
+            return true;
+        } else {
+            log.warn("Wrong! The ships should not crosse and touch each other!");
+            return false;
+        }
+    }
 
 
     private boolean isCheckXAndY(int beginY, int beginX) {
@@ -72,7 +72,7 @@ public class Player {
                     return true;
                 }
             }
-            if (beginX == 0 && beginY!= 8) {
+            if (beginX == 0 && beginY != 8) {
                 if (cellsOfOwnFigures.getCells()[beginY - 1][beginX] == Figure.EMPTY.getView() &&
                         cellsOfOwnFigures.getCells()[beginY - 1][beginX + 1] == Figure.EMPTY.getView() &&
                         cellsOfOwnFigures.getCells()[beginY][beginX + 1] == Figure.EMPTY.getView() &&
@@ -127,10 +127,7 @@ public class Player {
         return false;
     }
 
-    public GameResult makeShot(String coordinateOfCell) {
-        char[] getCoordinatesOfCell = coordinateOfCell.toCharArray();
-        int x = Canvas.getPREFIX_OF_VIEW_CANVAS().indexOf(getCoordinatesOfCell[0]) - 1;
-        int y = Character.getNumericValue(getCoordinatesOfCell[1]) - 1;
+    public GameResult makeShot(int x, int y, String coordinateOfCell) {
         if (cellsOfOwnFigures.getCells()[y][x] == Figure.DESTROY.getView() ||
                 cellsOfOwnFigures.getCells()[y][x] == Figure.AWAY.getView()) {
             return new GameResult(false, "THE SAME SHOT!");
@@ -152,7 +149,7 @@ public class Player {
                             countAllCellsShips--;
                             if (ownShip.getLength() == 0) {
                                 if (countAllCellsShips == 0) {
-                                    return new GameResult(true,"KILLED!");
+                                    return new GameResult(true, "KILLED!");
                                 } else {
                                     return new GameResult(false, "KILLED!");
                                 }

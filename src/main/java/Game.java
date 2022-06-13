@@ -6,17 +6,18 @@ import java.util.Scanner;
 @Slf4j
 public class Game {
 
-    private static final Scanner scanner = new Scanner(System.in);
+    private static final int LENGTH_COORDINATE_SHOT = 1;
+    private static final Scanner SCANNER = new Scanner(System.in);
 
     private static int CURSOR = new Random().nextInt(2);
 
     public static void main(String[] args) {
         log.info("====== Welcome to Sea Battle! ======");
         log.info("  Please, enter your name for player one: ");
-        Player onePlayer = new Player(scanner.nextLine());
+        Player onePlayer = new Player(SCANNER.nextLine());
         fillCanvasByShips(onePlayer);
         log.info("  Enter your name for player two: ");
-        Player twoPlayer = new Player(scanner.nextLine());
+        Player twoPlayer = new Player(SCANNER.nextLine());
         fillCanvasByShips(twoPlayer);
         log.info("\nOk, let's start the battle!\n");
 
@@ -26,30 +27,32 @@ public class Game {
             currentPlayer.getCellsOfOwnFigures().drawCanvas();
             currentPlayer.getCellsOfOpponentFigures().drawCanvas();
             log.info("Enter the coordinate of one cell: ");
-            String shot = scanner.nextLine();
+            String shot = SCANNER.nextLine().toUpperCase();
             char[] getCoordinatesOfCell = shot.toCharArray();
-            int x = Canvas.getPREFIX_OF_VIEW_CANVAS().indexOf(getCoordinatesOfCell[0]) - 1;
+            int x = Canvas.getVALIDATE_LITERAL_CHARACTER().indexOf(getCoordinatesOfCell[0]);
             int y = Character.getNumericValue(getCoordinatesOfCell[1]) - 1;
-            GameResult result = currentPlayer == onePlayer ? twoPlayer.makeShot(shot) : onePlayer.makeShot(shot);
-            if (result.isGameEnded()) {
-                log.info("The winner is {}", currentPlayer.getName());
-                break;
-            } else {
-                if (result.getShotResult().equals("AWAY!")) {
-                    log.info("AWAY!\n");
-                    currentPlayer.getCellsOfOpponentFigures().getCells()[y][x] = Figure.AWAY.getView();
-                    CURSOR++;
-                }
-                if (result.getShotResult().equals("WOUNDED!")) {
-                    log.info("WOUNDED!");
-                    currentPlayer.getCellsOfOpponentFigures().getCells()[y][x] = Figure.DESTROY.getView();
-                }
-                if (result.getShotResult().equals("KILLED!")) {
-                    log.info("KILLED!");
-                    currentPlayer.getCellsOfOpponentFigures().getCells()[y][x] = Figure.DESTROY.getView();
-                }
-                if (result.getShotResult().equals("THE SAME SHOT!")) {
-                    log.info("THE SAME SHOT!");
+            if (isCoordinatesValid(LENGTH_COORDINATE_SHOT, shot)) {
+                GameResult result = currentPlayer == onePlayer ? twoPlayer.makeShot(x, y, shot) : onePlayer.makeShot(x, y, shot);
+                if (result.isGameEnded()) {
+                    log.info("The winner is {}", currentPlayer.getName());
+                    break;
+                } else {
+                    if (result.getShotResult().equals("AWAY!")) {
+                        log.info("AWAY!\n");
+                        currentPlayer.getCellsOfOpponentFigures().getCells()[y][x] = Figure.AWAY.getView();
+                        CURSOR++;
+                    }
+                    if (result.getShotResult().equals("WOUNDED!")) {
+                        log.info("WOUNDED!");
+                        currentPlayer.getCellsOfOpponentFigures().getCells()[y][x] = Figure.DESTROY.getView();
+                    }
+                    if (result.getShotResult().equals("KILLED!")) {
+                        log.info("KILLED!");
+                        currentPlayer.getCellsOfOpponentFigures().getCells()[y][x] = Figure.DESTROY.getView();
+                    }
+                    if (result.getShotResult().equals("THE SAME SHOT!")) {
+                        log.info("THE SAME SHOT!");
+                    }
                 }
             }
         }
@@ -60,7 +63,7 @@ public class Game {
         for (int i = 0; i < Player.getCOUNT_OF_SHIPS(); i++) {
             if (i == 0) {
                 log.info("  Enter the coordinates of four-deck ship (for example - A1,A2,A3,A4): ");
-                coordinates = scanner.nextLine().toUpperCase();
+                coordinates = SCANNER.nextLine().toUpperCase();
                 if (isCoordinatesValid(Ship.getFOUR_DECK(), coordinates)) {
                     if (isCoordinateOrder(coordinates)) {
                         player.getShips()[i] = new Ship("BATTLESHIP", coordinates, Ship.getFOUR_DECK());
@@ -77,7 +80,7 @@ public class Game {
                 }
 
             }
-            if (i > 0 && i < 3) {
+            /*if (i > 0 && i < 3) {
                 log.info("  Enter the coordinates of three-deck ship (for example - C1,C2,C3): ");
                 coordinates = scanner.nextLine().toUpperCase();
                 if (isCoordinatesValid(Ship.getTHREE_DECK(), coordinates)) {
@@ -126,7 +129,7 @@ public class Game {
                 } else {
                     i--;
                 }
-            }
+            }*/
         }
     }
 
