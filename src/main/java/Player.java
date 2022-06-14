@@ -4,9 +4,9 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public class Player {
-    private static int countAllCellsShips = 4;
+    private static int countAllCellsShips = 20;
     @Getter
-    private static final int COUNT_OF_SHIPS = 1;
+    private static final int COUNT_OF_SHIPS = 10;
     @Getter
     private final String name;
     @Getter
@@ -135,28 +135,17 @@ public class Player {
             if (cellsOfOwnFigures.getCells()[y][x] == Figure.LIVE.getView()) {
                 for (Ship ownShip : ships) {
                     if (ownShip.getCoordinates().contains(coordinateOfCell)) {
-                        if (ownShip.getName().equals("TORPEDO BOAT")) {
-                            cellsOfOwnFigures.getCells()[y][x] = Figure.DESTROY.getView();
-                            countAllCellsShips--;
+                        cellsOfOwnFigures.getCells()[y][x] = Figure.DESTROY.getView();
+                        ownShip.setLength(ownShip.getLength() - 1);
+                        countAllCellsShips--;
+                        if (ownShip.getLength() == 0) {
                             if (countAllCellsShips == 0) {
                                 return new GameResult(true, Condition.KILLED);
                             } else {
                                 return new GameResult(false, Condition.KILLED);
                             }
                         } else {
-                            cellsOfOwnFigures.getCells()[y][x] = Figure.DESTROY.getView();
-                            ownShip.setLength(ownShip.getLength() - 1);
-                            countAllCellsShips--;
-                            if (ownShip.getLength() == 0) {
-                                if (countAllCellsShips == 0) {
-                                    return new GameResult(true, Condition.KILLED);
-                                } else {
-                                    return new GameResult(false, Condition.KILLED);
-                                }
-                            } else {
-                                return new GameResult(false, Condition.WOUNDED);
-                            }
-
+                            return new GameResult(false, Condition.WOUNDED);
                         }
                     }
                 }

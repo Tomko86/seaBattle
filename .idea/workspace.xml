@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="76050751-9161-4f94-81c0-329d09de2c70" name="Changes" comment="Added checking coordinate of shot on validity.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Condition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GameResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameResult.java" afterDir="false" />
+    <list default="true" id="76050751-9161-4f94-81c0-329d09de2c70" name="Changes" comment="Added enum Condition.java">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Ship.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Ship.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/avenue/java/spb/seaBattle/Canvas.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/avenue/java/spb/seaBattle/Figure.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/avenue/java/spb/seaBattle/Game.java" beforeDir="false" />
@@ -180,7 +181,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655138144173</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Added enum Condition.java">
+      <created>1655139473773</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1655139473773</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -238,6 +246,7 @@
     <MESSAGE value="Fix bug in file Player.java" />
     <MESSAGE value="Fix bug in file Player.java and Game.java (check on crosses ships)." />
     <MESSAGE value="Added checking coordinate of shot on validity." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added checking coordinate of shot on validity." />
+    <MESSAGE value="Added enum Condition.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added enum Condition.java" />
   </component>
 </project>

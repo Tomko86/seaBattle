@@ -37,20 +37,20 @@ public class Game {
                     log.info("The winner is {}", currentPlayer.getName());
                     break;
                 } else {
-                    if (result.getShotResult().equals("AWAY!")) {
+                    if (result.getShotResult().equals(Condition.AWAY)) {
                         log.info("AWAY!\n");
                         currentPlayer.getCellsOfOpponentFigures().getCells()[y][x] = Figure.AWAY.getView();
                         CURSOR++;
                     }
-                    if (result.getShotResult().equals("WOUNDED!")) {
+                    if (result.getShotResult().equals(Condition.WOUNDED)) {
                         log.info("WOUNDED!");
                         currentPlayer.getCellsOfOpponentFigures().getCells()[y][x] = Figure.DESTROY.getView();
                     }
-                    if (result.getShotResult().equals("KILLED!")) {
+                    if (result.getShotResult().equals(Condition.KILLED)) {
                         log.info("KILLED!");
                         currentPlayer.getCellsOfOpponentFigures().getCells()[y][x] = Figure.DESTROY.getView();
                     }
-                    if (result.getShotResult().equals("THE SAME SHOT!")) {
+                    if (result.getShotResult().equals(Condition.SAME_SHOT)) {
                         log.info("THE SAME SHOT!");
                     }
                 }
@@ -66,7 +66,7 @@ public class Game {
                 coordinates = SCANNER.nextLine().toUpperCase();
                 if (isCoordinatesValid(Ship.getFOUR_DECK(), coordinates)) {
                     if (isCoordinateOrder(coordinates)) {
-                        player.getShips()[i] = new Ship("BATTLESHIP", coordinates, Ship.getFOUR_DECK());
+                        player.getShips()[i] = new Ship(coordinates, Ship.getFOUR_DECK());
                         if (player.addShipsOnCanvas(coordinates)) {
                             player.getCellsOfOwnFigures().drawCanvas();
                         } else {
@@ -85,7 +85,7 @@ public class Game {
                 coordinates = SCANNER.nextLine().toUpperCase();
                 if (isCoordinatesValid(Ship.getTHREE_DECK(), coordinates)) {
                     if (isCoordinateOrder(coordinates)) {
-                        player.getShips()[i] = new Ship("CRUISER", coordinates, Ship.getTHREE_DECK());
+                        player.getShips()[i] = new Ship(coordinates, Ship.getTHREE_DECK());
                         if (player.addShipsOnCanvas(coordinates)) {
                             player.getCellsOfOwnFigures().drawCanvas();
                         } else {
@@ -103,7 +103,7 @@ public class Game {
                 coordinates = SCANNER.nextLine().toUpperCase();
                 if (isCoordinatesValid(Ship.getTWO_DECK(), coordinates)) {
                     if (isCoordinateOrder(coordinates)) {
-                        player.getShips()[i] = new Ship("DESTROYER", coordinates, Ship.getTWO_DECK());
+                        player.getShips()[i] = new Ship(coordinates, Ship.getTWO_DECK());
                         if (player.addShipsOnCanvas(coordinates)) {
                             player.getCellsOfOwnFigures().drawCanvas();
                         } else {
@@ -120,7 +120,7 @@ public class Game {
                 log.info("  Enter the coordinates of one-deck ship (for example - F1): ");
                 coordinates = SCANNER.nextLine().toUpperCase();
                 if (isCoordinatesValid(Ship.getONE_DECK(), coordinates)) {
-                    player.getShips()[i] = new Ship("TORPEDO BOAT", coordinates, Ship.getONE_DECK());
+                    player.getShips()[i] = new Ship( coordinates, Ship.getONE_DECK());
                     if (player.addShipsOnCanvas(coordinates)) {
                         player.getCellsOfOwnFigures().drawCanvas();
                     } else {

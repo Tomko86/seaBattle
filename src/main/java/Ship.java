@@ -14,8 +14,6 @@ public class Ship {
     private static final int ONE_DECK = 1;
 
     @Getter
-    private final String name;
-    @Getter
     private final String coordinates;
     @Getter
     @Setter
