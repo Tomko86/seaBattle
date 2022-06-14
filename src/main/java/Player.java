@@ -4,7 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public class Player {
-    private static int countAllCellsShips = 20;
+    private int countAllCellsShips = 20;
     @Getter
     private static final int COUNT_OF_SHIPS = 10;
     @Getter
@@ -56,7 +56,7 @@ public class Player {
                     return true;
                 }
             }
-            if (beginY == 0 && beginX != 8) {
+            if (beginY == 0 && beginX != 8 && beginX != 0) {
                 if (cellsOfOwnFigures.getCells()[beginY][beginX - 1] == Figure.EMPTY.getView() &&
                         cellsOfOwnFigures.getCells()[beginY + 1][beginX - 1] == Figure.EMPTY.getView() &&
                         cellsOfOwnFigures.getCells()[beginY + 1][beginX] == Figure.EMPTY.getView() &&
@@ -72,7 +72,7 @@ public class Player {
                     return true;
                 }
             }
-            if (beginX == 0 && beginY != 8) {
+            if (beginX == 0 && beginY != 8 && beginY != 0) {
                 if (cellsOfOwnFigures.getCells()[beginY - 1][beginX] == Figure.EMPTY.getView() &&
                         cellsOfOwnFigures.getCells()[beginY - 1][beginX + 1] == Figure.EMPTY.getView() &&
                         cellsOfOwnFigures.getCells()[beginY][beginX + 1] == Figure.EMPTY.getView() &&
@@ -93,7 +93,7 @@ public class Player {
                     return true;
                 }
             }
-            if (beginX == 8 && beginY != 0) {
+            if (beginX == 8 && beginY != 0 && beginY != 8) {
                 if (cellsOfOwnFigures.getCells()[beginY - 1][beginX] == Figure.EMPTY.getView() &&
                         cellsOfOwnFigures.getCells()[beginY - 1][beginX - 1] == Figure.EMPTY.getView() &&
                         cellsOfOwnFigures.getCells()[beginY][beginX - 1] == Figure.EMPTY.getView() &&
@@ -109,7 +109,7 @@ public class Player {
                     return true;
                 }
             }
-            if (beginY == 8 && beginX != 0) {
+            if (beginY == 8 && beginX != 0 && beginX != 8) {
                 if (cellsOfOwnFigures.getCells()[beginY][beginX - 1] == Figure.EMPTY.getView() &&
                         cellsOfOwnFigures.getCells()[beginY - 1][beginX - 1] == Figure.EMPTY.getView() &&
                         cellsOfOwnFigures.getCells()[beginY - 1][beginX] == Figure.EMPTY.getView() &&
@@ -120,7 +120,7 @@ public class Player {
             }
             if (beginY == 8 && beginX == 8) {
                 return cellsOfOwnFigures.getCells()[beginY][beginX - 1] == Figure.EMPTY.getView() &&
-                        cellsOfOwnFigures.getCells()[beginY + 1][beginX - 1] == Figure.EMPTY.getView() &&
+                        cellsOfOwnFigures.getCells()[beginY - 1][beginX - 1] == Figure.EMPTY.getView() &&
                         cellsOfOwnFigures.getCells()[beginY - 1][beginX] == Figure.EMPTY.getView();
             }
         }
@@ -140,9 +140,9 @@ public class Player {
                         countAllCellsShips--;
                         if (ownShip.getLength() == 0) {
                             if (countAllCellsShips == 0) {
-                                return new GameResult(true, Condition.KILLED);
+                                return new GameResult(true, Condition.KILLED, ownShip.getCoordinates());
                             } else {
-                                return new GameResult(false, Condition.KILLED);
+                                return new GameResult(false, Condition.KILLED, ownShip.getCoordinates());
                             }
                         } else {
                             return new GameResult(false, Condition.WOUNDED);

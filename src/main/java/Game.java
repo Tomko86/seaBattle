@@ -49,6 +49,7 @@ public class Game {
                     if (result.getShotResult().equals(Condition.KILLED)) {
                         log.info("KILLED!");
                         currentPlayer.getCellsOfOpponentFigures().getCells()[y][x] = Figure.DESTROY.getView();
+                        fillNearbyCells(currentPlayer, result.getCoordinate());
                     }
                     if (result.getShotResult().equals(Condition.SAME_SHOT)) {
                         log.info("THE SAME SHOT!");
@@ -56,6 +57,121 @@ public class Game {
                 }
             }
         }
+    }
+
+    private static void fillNearbyCells(Player player, String coordinate) {
+        String[] arrayCoordinate = coordinate.split(",");
+        for (String addressCell : arrayCoordinate) {
+            int x = Canvas.getPREFIX_OF_VIEW_CANVAS().indexOf(addressCell.toCharArray()[0]) - 1;
+            int y = Character.getNumericValue(addressCell.toCharArray()[1]) - 1;
+            if (y == 0 && x == 0) {
+                if (player.getCellsOfOpponentFigures().getCells()[y][x + 1] != Figure.DESTROY.getView()) {
+                    player.getCellsOfOpponentFigures().getCells()[y][x + 1] = Figure.AWAY.getView();
+                    player.getCellsOfOpponentFigures().getCells()[y + 1][x + 1] = Figure.AWAY.getView();
+                 }
+                if (player.getCellsOfOpponentFigures().getCells()[y + 1][x] != Figure.DESTROY.getView()) {
+                    player.getCellsOfOpponentFigures().getCells()[y + 1][x] = Figure.AWAY.getView();
+                }
+            }
+            if (y == 0 && x != 8 && x != 0) {
+                if(player.getCellsOfOpponentFigures().getCells()[y][x + 1] != Figure.DESTROY.getView()) {
+                    player.getCellsOfOpponentFigures().getCells()[y][x + 1] = Figure.AWAY.getView();
+                    player.getCellsOfOpponentFigures().getCells()[y + 1][x + 1] = Figure.AWAY.getView();
+                }
+                if (player.getCellsOfOpponentFigures().getCells()[y + 1][x] != Figure.DESTROY.getView()) {
+                    player.getCellsOfOpponentFigures().getCells()[y + 1][x] = Figure.AWAY.getView();
+                    player.getCellsOfOpponentFigures().getCells()[y + 1][x - 1] = Figure.AWAY.getView();
+                }
+                if (player.getCellsOfOpponentFigures().getCells()[y][x - 1] != Figure.DESTROY.getView()) {
+                    player.getCellsOfOpponentFigures().getCells()[y][x - 1] = Figure.AWAY.getView();
+                }
+            }
+            if (y == 0 && x == 8) {
+                if (player.getCellsOfOpponentFigures().getCells()[y + 1][x] != Figure.DESTROY.getView()) {
+                    player.getCellsOfOpponentFigures().getCells()[y + 1][x] = Figure.AWAY.getView();
+                    player.getCellsOfOpponentFigures().getCells()[y + 1][x - 1] = Figure.AWAY.getView();
+                }
+                if (player.getCellsOfOpponentFigures().getCells()[y][x - 1] != Figure.DESTROY.getView()) {
+                    player.getCellsOfOpponentFigures().getCells()[y][x - 1] = Figure.AWAY.getView();
+                }
+            }
+            if (x == 0 && y != 8 && y != 0) {
+                if (player.getCellsOfOpponentFigures().getCells()[y + 1][x] != Figure.DESTROY.getView()) {
+                    player.getCellsOfOpponentFigures().getCells()[y + 1][x] = Figure.AWAY.getView();
+                    player.getCellsOfOpponentFigures().getCells()[y + 1][x + 1] = Figure.AWAY.getView();
+                }
+                if (player.getCellsOfOpponentFigures().getCells()[y][x + 1] != Figure.DESTROY.getView()) {
+                    player.getCellsOfOpponentFigures().getCells()[y][x + 1] = Figure.AWAY.getView();
+                    player.getCellsOfOpponentFigures().getCells()[y - 1][x + 1] = Figure.AWAY.getView();
+                }
+                if (player.getCellsOfOpponentFigures().getCells()[y - 1][x] != Figure.DESTROY.getView()) {
+                    player.getCellsOfOpponentFigures().getCells()[y - 1][x] = Figure.AWAY.getView();
+                }
+            }
+            if (y != 0 && x != 0 && x != 8 && y != 8) {
+                if (player.getCellsOfOpponentFigures().getCells()[y + 1][x] != Figure.DESTROY.getView()) {
+                    player.getCellsOfOpponentFigures().getCells()[y + 1][x] = Figure.AWAY.getView();
+                    player.getCellsOfOpponentFigures().getCells()[y + 1][x + 1] = Figure.AWAY.getView();
+                }
+                if (player.getCellsOfOpponentFigures().getCells()[y][x + 1] != Figure.DESTROY.getView()) {
+                    player.getCellsOfOpponentFigures().getCells()[y][x + 1] = Figure.AWAY.getView();
+                    player.getCellsOfOpponentFigures().getCells()[y - 1][x + 1] = Figure.AWAY.getView();
+                }
+                if (player.getCellsOfOpponentFigures().getCells()[y - 1][x] != Figure.DESTROY.getView()) {
+                    player.getCellsOfOpponentFigures().getCells()[y - 1][x] = Figure.AWAY.getView();
+                    player.getCellsOfOpponentFigures().getCells()[y - 1][x - 1] = Figure.AWAY.getView();
+                }
+                if (player.getCellsOfOpponentFigures().getCells()[y][x - 1] != Figure.DESTROY.getView()) {
+                    player.getCellsOfOpponentFigures().getCells()[y][x - 1] = Figure.AWAY.getView();
+                    player.getCellsOfOpponentFigures().getCells()[y + 1][x - 1] = Figure.AWAY.getView();
+                }
+            }
+            if (x == 8 && y != 0 && y != 8) {
+                if (player.getCellsOfOpponentFigures().getCells()[y - 1][x] != Figure.DESTROY.getView()) {
+                    player.getCellsOfOpponentFigures().getCells()[y - 1][x] = Figure.AWAY.getView();
+                    player.getCellsOfOpponentFigures().getCells()[y - 1][x - 1] = Figure.AWAY.getView();
+                }
+                if (player.getCellsOfOpponentFigures().getCells()[y][x - 1] != Figure.DESTROY.getView()) {
+                    player.getCellsOfOpponentFigures().getCells()[y][x - 1] = Figure.AWAY.getView();
+                    player.getCellsOfOpponentFigures().getCells()[y + 1][x - 1] = Figure.AWAY.getView();
+                }
+                if (player.getCellsOfOpponentFigures().getCells()[y + 1][x] != Figure.DESTROY.getView()) {
+                    player.getCellsOfOpponentFigures().getCells()[y + 1][x] = Figure.AWAY.getView();
+                }
+            }
+            if (y == 8 && x == 0) {
+                if (player.getCellsOfOpponentFigures().getCells()[y][x + 1] != Figure.DESTROY.getView()) {
+                    player.getCellsOfOpponentFigures().getCells()[y][x + 1] = Figure.AWAY.getView();
+                    player.getCellsOfOpponentFigures().getCells()[y - 1][x + 1] = Figure.AWAY.getView();
+                }
+                if (player.getCellsOfOpponentFigures().getCells()[y - 1][x] != Figure.DESTROY.getView()) {
+                    player.getCellsOfOpponentFigures().getCells()[y - 1][x] = Figure.AWAY.getView();
+                }
+            }
+            if (y == 8 && x != 0 &&  x != 8) {
+                if (player.getCellsOfOpponentFigures().getCells()[y][x + 1] != Figure.DESTROY.getView()) {
+                    player.getCellsOfOpponentFigures().getCells()[y][x + 1] = Figure.AWAY.getView();
+                    player.getCellsOfOpponentFigures().getCells()[y - 1][x + 1] = Figure.AWAY.getView();
+                }
+                if (player.getCellsOfOpponentFigures().getCells()[y - 1][x] != Figure.DESTROY.getView()) {
+                    player.getCellsOfOpponentFigures().getCells()[y - 1][x] = Figure.AWAY.getView();
+                    player.getCellsOfOpponentFigures().getCells()[y - 1][x - 1] = Figure.AWAY.getView();
+                }
+                if (player.getCellsOfOpponentFigures().getCells()[y][x - 1] != Figure.DESTROY.getView()) {
+                    player.getCellsOfOpponentFigures().getCells()[y][x - 1] = Figure.AWAY.getView();
+                }
+            }
+            if (y == 8 && x == 8) {
+                if (player.getCellsOfOpponentFigures().getCells()[y - 1][x ] != Figure.DESTROY.getView()) {
+                    player.getCellsOfOpponentFigures().getCells()[y - 1][x] = Figure.AWAY.getView();
+                    player.getCellsOfOpponentFigures().getCells()[y - 1][x - 1] = Figure.AWAY.getView();
+                }
+                if (player.getCellsOfOpponentFigures().getCells()[y - 1][x] != Figure.DESTROY.getView()) {
+                    player.getCellsOfOpponentFigures().getCells()[y - 1][x] = Figure.AWAY.getView();
+                }
+            }
+        }
+
     }
 
     private static void fillCanvasByShips(Player player) {

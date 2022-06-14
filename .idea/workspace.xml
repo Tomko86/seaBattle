@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="76050751-9161-4f94-81c0-329d09de2c70" name="Changes" comment="Added enum Condition.java">
+    <list default="true" id="76050751-9161-4f94-81c0-329d09de2c70" name="Changes" comment="Deleted the field name from class Ship.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GameResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameResult.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Ship.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Ship.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/avenue/java/spb/seaBattle/Canvas.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/avenue/java/spb/seaBattle/Figure.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/avenue/java/spb/seaBattle/Game.java" beforeDir="false" />
@@ -188,7 +188,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655139473773</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Deleted the field name from class Ship.">
+      <created>1655196301103</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1655196301103</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -219,18 +226,32 @@
                   <entry key="Show.Git.Branches" value="true" />
                 </map>
               </option>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="master" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
             </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/master" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="master" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="HEAD" />
+                </option>
+              </RecentGroup>
+            </list>
           </value>
         </entry>
       </map>
@@ -247,6 +268,7 @@
     <MESSAGE value="Fix bug in file Player.java and Game.java (check on crosses ships)." />
     <MESSAGE value="Added checking coordinate of shot on validity." />
     <MESSAGE value="Added enum Condition.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added enum Condition.java" />
+    <MESSAGE value="Deleted the field name from class Ship." />
+    <option name="LAST_COMMIT_MESSAGE" value="Deleted the field name from class Ship." />
   </component>
 </project>
