@@ -5,10 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="76050751-9161-4f94-81c0-329d09de2c70" name="Changes" comment="Deleted the field name from class Ship.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/SaveLoadGame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GameResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameResult.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Ship.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Ship.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/avenue/java/spb/seaBattle/Canvas.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/avenue/java/spb/seaBattle/Figure.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/avenue/java/spb/seaBattle/Game.java" beforeDir="false" />
@@ -24,8 +26,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -97,6 +99,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Game (1)" />
+        <item itemvalue="Application.Game" />
         <item itemvalue="Application.Game (1)" />
         <item itemvalue="Application.Game" />
       </list>
@@ -226,6 +230,17 @@
                   <entry key="Show.Git.Branches" value="true" />
                 </map>
               </option>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
             </State>
           </value>
         </entry>
@@ -243,12 +258,12 @@
               </RecentGroup>
               <RecentGroup>
                 <option name="FILTER_VALUES">
-                  <option value="master" />
+                  <option value="HEAD" />
                 </option>
               </RecentGroup>
               <RecentGroup>
                 <option name="FILTER_VALUES">
-                  <option value="HEAD" />
+                  <option value="master" />
                 </option>
               </RecentGroup>
             </list>
@@ -270,5 +285,16 @@
     <MESSAGE value="Added enum Condition.java" />
     <MESSAGE value="Deleted the field name from class Ship." />
     <option name="LAST_COMMIT_MESSAGE" value="Deleted the field name from class Ship." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Player.java</url>
+          <line>145</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

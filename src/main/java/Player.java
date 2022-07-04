@@ -1,14 +1,18 @@
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
+@NoArgsConstructor
 public class Player {
-    private int countAllCellsShips = 20;
     @Getter
-    private static final int COUNT_OF_SHIPS = 10;
+    private static final int COUNT_OF_SHIPS = 1;
     @Getter
-    private final String name;
+    @Setter
+    private Integer countAllCellsShips;
+    @Getter
+    private String name;
     @Getter
     @Setter
     private Ship[] ships;
@@ -19,9 +23,11 @@ public class Player {
     @Getter
     private final Canvas cellsOfOpponentFigures = new Canvas();
 
+
     public Player(String name) {
         this.name = name;
         ships = new Ship[COUNT_OF_SHIPS];
+        countAllCellsShips = 4;
     }
 
     public boolean addShipsOnCanvas(String coordinate) {

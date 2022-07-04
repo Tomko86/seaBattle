@@ -8,33 +8,48 @@ public class Game {
 
     private static final int LENGTH_COORDINATE_SHOT = 1;
     private static final Scanner SCANNER = new Scanner(System.in);
-
     private static int CURSOR = new Random().nextInt(2);
+    private static final SaveLoadGame saveLoadGame = new SaveLoadGame();
 
     public static void main(String[] args) {
         log.info("====== Welcome to Sea Battle! ======");
-        log.info("  Please, enter your name for player one: ");
-        Player onePlayer = new Player(SCANNER.nextLine());
-        fillCanvasByShips(onePlayer);
-        log.info("  Enter your name for player two: ");
-        Player twoPlayer = new Player(SCANNER.nextLine());
-        fillCanvasByShips(twoPlayer);
-        log.info("\nOk, let's start the battle!\n");
+        Player onePlayer, twoPlayer, currentPlayer;
+        if (saveLoadGame.loadGame() != null) {
+            onePlayer = saveLoadGame.loadGame()[0];
+            twoPlayer = saveLoadGame.loadGame()[1];
+            saveLoadGame.saveGame(null);
+            log.info("Ok, let's continue the game...\n");
+        } else {
+            log.info("  Please, enter your name for player one: ");
+            onePlayer = new Player(SCANNER.nextLine());
+            fillCanvasByShips(onePlayer);
+            log.info("  Enter your name for player two: ");
+            twoPlayer = new Player(SCANNER.nextLine());
+            fillCanvasByShips(twoPlayer);
+            log.info("\nOk, let's start the battle!\n");
+        }
 
         while (true) {
-            Player currentPlayer = CURSOR % 2 == 0 ? onePlayer : twoPlayer;
+            currentPlayer = CURSOR % 2 == 0 ? onePlayer : twoPlayer;
             log.info("{}, make a shot, please.", currentPlayer.getName());
             currentPlayer.getCellsOfOwnFigures().drawCanvas();
             currentPlayer.getCellsOfOpponentFigures().drawCanvas();
-            log.info("Enter the coordinate of one cell: ");
+            log.info("If you want to save and close the game, enter -- s -- \nEnter the coordinate of one cell: ");
             String shot = SCANNER.nextLine().toUpperCase();
+            if (shot.equals("S")) {
+                saveLoadGame.saveGame(new Player[] {onePlayer, twoPlayer});
+                System.exit(0);
+            }
             char[] getCoordinatesOfCell = shot.toCharArray();
             int x = Canvas.getVALIDATE_LITERAL_CHARACTER().indexOf(getCoordinatesOfCell[0]);
             int y = Character.getNumericValue(getCoordinatesOfCell[1]) - 1;
+
+            // Necessary to check the method!!!
             if (isCoordinatesValid(LENGTH_COORDINATE_SHOT, shot)) {
                 GameResult result = currentPlayer == onePlayer ? twoPlayer.makeShot(x, y, shot) : onePlayer.makeShot(x, y, shot);
                 if (result.isGameEnded()) {
                     log.info("The winner is {}", currentPlayer.getName());
+                    saveLoadGame.saveGame(null);
                     break;
                 } else {
                     if (result.getShotResult().equals(Condition.AWAY)) {
@@ -68,13 +83,13 @@ public class Game {
                 if (player.getCellsOfOpponentFigures().getCells()[y][x + 1] != Figure.DESTROY.getView()) {
                     player.getCellsOfOpponentFigures().getCells()[y][x + 1] = Figure.AWAY.getView();
                     player.getCellsOfOpponentFigures().getCells()[y + 1][x + 1] = Figure.AWAY.getView();
-                 }
+                }
                 if (player.getCellsOfOpponentFigures().getCells()[y + 1][x] != Figure.DESTROY.getView()) {
                     player.getCellsOfOpponentFigures().getCells()[y + 1][x] = Figure.AWAY.getView();
                 }
             }
             if (y == 0 && x != 8 && x != 0) {
-                if(player.getCellsOfOpponentFigures().getCells()[y][x + 1] != Figure.DESTROY.getView()) {
+                if (player.getCellsOfOpponentFigures().getCells()[y][x + 1] != Figure.DESTROY.getView()) {
                     player.getCellsOfOpponentFigures().getCells()[y][x + 1] = Figure.AWAY.getView();
                     player.getCellsOfOpponentFigures().getCells()[y + 1][x + 1] = Figure.AWAY.getView();
                 }
@@ -148,7 +163,7 @@ public class Game {
                     player.getCellsOfOpponentFigures().getCells()[y - 1][x] = Figure.AWAY.getView();
                 }
             }
-            if (y == 8 && x != 0 &&  x != 8) {
+            if (y == 8 && x != 0 && x != 8) {
                 if (player.getCellsOfOpponentFigures().getCells()[y][x + 1] != Figure.DESTROY.getView()) {
                     player.getCellsOfOpponentFigures().getCells()[y][x + 1] = Figure.AWAY.getView();
                     player.getCellsOfOpponentFigures().getCells()[y - 1][x + 1] = Figure.AWAY.getView();
@@ -162,7 +177,7 @@ public class Game {
                 }
             }
             if (y == 8 && x == 8) {
-                if (player.getCellsOfOpponentFigures().getCells()[y - 1][x ] != Figure.DESTROY.getView()) {
+                if (player.getCellsOfOpponentFigures().getCells()[y - 1][x] != Figure.DESTROY.getView()) {
                     player.getCellsOfOpponentFigures().getCells()[y - 1][x] = Figure.AWAY.getView();
                     player.getCellsOfOpponentFigures().getCells()[y - 1][x - 1] = Figure.AWAY.getView();
                 }
@@ -236,7 +251,7 @@ public class Game {
                 log.info("  Enter the coordinates of one-deck ship (for example - F1): ");
                 coordinates = SCANNER.nextLine().toUpperCase();
                 if (isCoordinatesValid(Ship.getONE_DECK(), coordinates)) {
-                    player.getShips()[i] = new Ship( coordinates, Ship.getONE_DECK());
+                    player.getShips()[i] = new Ship(coordinates, Ship.getONE_DECK());
                     if (player.addShipsOnCanvas(coordinates)) {
                         player.getCellsOfOwnFigures().drawCanvas();
                     } else {

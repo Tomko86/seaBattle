@@ -1,8 +1,10 @@
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @AllArgsConstructor
+@NoArgsConstructor
 public class Ship {
     @Getter
     private static final int FOUR_DECK = 4;
@@ -14,8 +16,8 @@ public class Ship {
     private static final int ONE_DECK = 1;
 
     @Getter
-    private final String coordinates;
+    private String coordinates;
     @Getter
     @Setter
-    private int length;
+    private Integer length;
 }
