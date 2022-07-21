@@ -4,19 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="76050751-9161-4f94-81c0-329d09de2c70" name="Changes" comment="Deleted the field name from class Ship.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/SaveLoadGame.java" afterDir="false" />
+    <list default="true" id="76050751-9161-4f94-81c0-329d09de2c70" name="Changes" comment="Added the ability to save the game">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Test.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GameResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameResult.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Ship.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Ship.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/avenue/java/spb/seaBattle/Canvas.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/avenue/java/spb/seaBattle/Figure.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/avenue/java/spb/seaBattle/Game.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/avenue/java/spb/seaBattle/GameResult.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/avenue/java/spb/seaBattle/Player.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/avenue/java/spb/seaBattle/Ship.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +70,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Game (1)">
+  <component name="RunManager" selected="Application.Test">
     <configuration name="Game (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Game" />
       <module name="seaBattle" />
@@ -97,8 +91,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Test" />
+      <module name="seaBattle" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Test" />
         <item itemvalue="Application.Game (1)" />
         <item itemvalue="Application.Game" />
         <item itemvalue="Application.Game (1)" />
@@ -199,7 +201,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655196301103</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Added the ability to save the game">
+      <created>1656962681584</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1656962681584</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -284,17 +293,7 @@
     <MESSAGE value="Added checking coordinate of shot on validity." />
     <MESSAGE value="Added enum Condition.java" />
     <MESSAGE value="Deleted the field name from class Ship." />
-    <option name="LAST_COMMIT_MESSAGE" value="Deleted the field name from class Ship." />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Player.java</url>
-          <line>145</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Added the ability to save the game" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added the ability to save the game" />
   </component>
 </project>

@@ -2,12 +2,31 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
+import java.util.ArrayList;
+
+/**
+ * The class consists fields: <b>countAllCellsShips</b>, <b>name</b>, <b>ships</b>, <b>cellsOfOwnFigures</b> and <b>cellsOfOpponentFigures</b>.
+ *
+ * @author or Alexandr Tomko
+ *
+ * @version 1.0
+ */
 
 @Slf4j
 @NoArgsConstructor
 public class Player {
+
+    /**
+     * This field contains a value of all count of ships.
+     */
     @Getter
     private static final int COUNT_OF_SHIPS = 1;
+
+    /**
+     * This field is sum of all cells of all ships.
+     * Four-deck ship (1) three-deck ship (2) two-deck ship (3)
+     * one-deck ship (4) Total: <b>countAllCellsShips</b> = 20.
+     */
     @Getter
     @Setter
     private Integer countAllCellsShips;
@@ -15,18 +34,24 @@ public class Player {
     private String name;
     @Getter
     @Setter
-    private Ship[] ships;
+    private ArrayList<Ship> ships;
 
+    /**
+     * This field consists the current state of the field of the player who making the move.
+     */
     @Getter
     private final Canvas cellsOfOwnFigures = new Canvas();
 
+    /**
+     * This field consists the current state of the field of the opponent.
+     */
     @Getter
     private final Canvas cellsOfOpponentFigures = new Canvas();
 
 
     public Player(String name) {
         this.name = name;
-        ships = new Ship[COUNT_OF_SHIPS];
+        ships = new ArrayList<>();
         countAllCellsShips = 4;
     }
 
@@ -52,86 +77,95 @@ public class Player {
         }
     }
 
-
-    private boolean isCheckXAndY(int beginY, int beginX) {
-        if (cellsOfOwnFigures.getCells()[beginY][beginX] == Figure.EMPTY.getView()) {
-            if (beginY == 0 && beginX == 0) {
-                if (cellsOfOwnFigures.getCells()[beginY][beginX + 1] == Figure.EMPTY.getView() &&
-                        cellsOfOwnFigures.getCells()[beginY + 1][beginX + 1] == Figure.EMPTY.getView() &&
-                        cellsOfOwnFigures.getCells()[beginY + 1][beginX] == Figure.EMPTY.getView()) {
+    /**
+     * This method checks the entered coordinates of the ship when adding it to the playing field.
+     * If the user enters the coordinates of the ship in such a way that the cell in which he is trying
+     * to install the ship will be empty and neighboring cells will be empty as well, the method will return true.
+     *
+     * @param y - is a value from range <b>1 - 9</b>.
+     * @param x - is a value from range <b>A, B, C... J</b>
+     * @return <b>true</b> or <b>false</b>
+     */
+    private boolean isCheckXAndY(int y, int x) {
+        if (cellsOfOwnFigures.getCells()[y][x] == Figure.EMPTY.getView()) {
+            if (y == 0 && x == 0) {
+                if (cellsOfOwnFigures.getCells()[y][x + 1] == Figure.EMPTY.getView() &&
+                        cellsOfOwnFigures.getCells()[y + 1][x + 1] == Figure.EMPTY.getView() &&
+                        cellsOfOwnFigures.getCells()[y + 1][x] == Figure.EMPTY.getView()) {
                     return true;
                 }
             }
-            if (beginY == 0 && beginX != 8 && beginX != 0) {
-                if (cellsOfOwnFigures.getCells()[beginY][beginX - 1] == Figure.EMPTY.getView() &&
-                        cellsOfOwnFigures.getCells()[beginY + 1][beginX - 1] == Figure.EMPTY.getView() &&
-                        cellsOfOwnFigures.getCells()[beginY + 1][beginX] == Figure.EMPTY.getView() &&
-                        cellsOfOwnFigures.getCells()[beginY + 1][beginX + 1] == Figure.EMPTY.getView() &&
-                        cellsOfOwnFigures.getCells()[beginY][beginX + 1] == Figure.EMPTY.getView()) {
+            if (y == 0 && x != 8 && x != 0) {
+                if (cellsOfOwnFigures.getCells()[y][x - 1] == Figure.EMPTY.getView() &&
+                        cellsOfOwnFigures.getCells()[y + 1][x - 1] == Figure.EMPTY.getView() &&
+                        cellsOfOwnFigures.getCells()[y + 1][x] == Figure.EMPTY.getView() &&
+                        cellsOfOwnFigures.getCells()[y + 1][x + 1] == Figure.EMPTY.getView() &&
+                        cellsOfOwnFigures.getCells()[y][x + 1] == Figure.EMPTY.getView()) {
                     return true;
                 }
             }
-            if (beginY == 0 && beginX == 8) {
-                if (cellsOfOwnFigures.getCells()[beginY][beginX - 1] == Figure.EMPTY.getView() &&
-                        cellsOfOwnFigures.getCells()[beginY + 1][beginX - 1] == Figure.EMPTY.getView() &&
-                        cellsOfOwnFigures.getCells()[beginY + 1][beginX] == Figure.EMPTY.getView()) {
+            if (y == 0 && x == 8) {
+                if (cellsOfOwnFigures.getCells()[y][x - 1] == Figure.EMPTY.getView() &&
+                        cellsOfOwnFigures.getCells()[y + 1][x - 1] == Figure.EMPTY.getView() &&
+                        cellsOfOwnFigures.getCells()[y + 1][x] == Figure.EMPTY.getView()) {
                     return true;
                 }
             }
-            if (beginX == 0 && beginY != 8 && beginY != 0) {
-                if (cellsOfOwnFigures.getCells()[beginY - 1][beginX] == Figure.EMPTY.getView() &&
-                        cellsOfOwnFigures.getCells()[beginY - 1][beginX + 1] == Figure.EMPTY.getView() &&
-                        cellsOfOwnFigures.getCells()[beginY][beginX + 1] == Figure.EMPTY.getView() &&
-                        cellsOfOwnFigures.getCells()[beginY + 1][beginX + 1] == Figure.EMPTY.getView() &&
-                        cellsOfOwnFigures.getCells()[beginY + 1][beginX] == Figure.EMPTY.getView()) {
+            if (x == 0 && y != 8 && y != 0) {
+                if (cellsOfOwnFigures.getCells()[y - 1][x] == Figure.EMPTY.getView() &&
+                        cellsOfOwnFigures.getCells()[y - 1][x + 1] == Figure.EMPTY.getView() &&
+                        cellsOfOwnFigures.getCells()[y][x + 1] == Figure.EMPTY.getView() &&
+                        cellsOfOwnFigures.getCells()[y + 1][x + 1] == Figure.EMPTY.getView() &&
+                        cellsOfOwnFigures.getCells()[y + 1][x] == Figure.EMPTY.getView()) {
                     return true;
                 }
             }
-            if (beginY != 0 && beginX != 0 && beginX != 8 && beginY != 8) {
-                if (cellsOfOwnFigures.getCells()[beginY + 1][beginX - 1] == Figure.EMPTY.getView() &&
-                        cellsOfOwnFigures.getCells()[beginY][beginX - 1] == Figure.EMPTY.getView() &&
-                        cellsOfOwnFigures.getCells()[beginY - 1][beginX - 1] == Figure.EMPTY.getView() &&
-                        cellsOfOwnFigures.getCells()[beginY - 1][beginX] == Figure.EMPTY.getView() &&
-                        cellsOfOwnFigures.getCells()[beginY - 1][beginX + 1] == Figure.EMPTY.getView() &&
-                        cellsOfOwnFigures.getCells()[beginY][beginX + 1] == Figure.EMPTY.getView() &&
-                        cellsOfOwnFigures.getCells()[beginY + 1][beginX + 1] == Figure.EMPTY.getView() &&
-                        cellsOfOwnFigures.getCells()[beginY + 1][beginX] == Figure.EMPTY.getView()) {
+            if (y != 0 && x != 0 && x != 8 && y != 8) {
+                if (cellsOfOwnFigures.getCells()[y + 1][x - 1] == Figure.EMPTY.getView() &&
+                        cellsOfOwnFigures.getCells()[y][x - 1] == Figure.EMPTY.getView() &&
+                        cellsOfOwnFigures.getCells()[y - 1][x - 1] == Figure.EMPTY.getView() &&
+                        cellsOfOwnFigures.getCells()[y - 1][x] == Figure.EMPTY.getView() &&
+                        cellsOfOwnFigures.getCells()[y - 1][x + 1] == Figure.EMPTY.getView() &&
+                        cellsOfOwnFigures.getCells()[y][x + 1] == Figure.EMPTY.getView() &&
+                        cellsOfOwnFigures.getCells()[y + 1][x + 1] == Figure.EMPTY.getView() &&
+                        cellsOfOwnFigures.getCells()[y + 1][x] == Figure.EMPTY.getView()) {
                     return true;
                 }
             }
-            if (beginX == 8 && beginY != 0 && beginY != 8) {
-                if (cellsOfOwnFigures.getCells()[beginY - 1][beginX] == Figure.EMPTY.getView() &&
-                        cellsOfOwnFigures.getCells()[beginY - 1][beginX - 1] == Figure.EMPTY.getView() &&
-                        cellsOfOwnFigures.getCells()[beginY][beginX - 1] == Figure.EMPTY.getView() &&
-                        cellsOfOwnFigures.getCells()[beginY - 1][beginX - 1] == Figure.EMPTY.getView() &&
-                        cellsOfOwnFigures.getCells()[beginY - 1][beginX] == Figure.EMPTY.getView()) {
+            if (x == 8 && y != 0 && y != 8) {
+                if (cellsOfOwnFigures.getCells()[y - 1][x] == Figure.EMPTY.getView() &&
+                        cellsOfOwnFigures.getCells()[y - 1][x - 1] == Figure.EMPTY.getView() &&
+                        cellsOfOwnFigures.getCells()[y][x - 1] == Figure.EMPTY.getView() &&
+                        cellsOfOwnFigures.getCells()[y - 1][x - 1] == Figure.EMPTY.getView() &&
+                        cellsOfOwnFigures.getCells()[y - 1][x] == Figure.EMPTY.getView()) {
                     return true;
                 }
             }
-            if (beginY == 8 && beginX == 0) {
-                if (cellsOfOwnFigures.getCells()[beginY - 1][beginX] == Figure.EMPTY.getView() &&
-                        cellsOfOwnFigures.getCells()[beginY - 1][beginX + 1] == Figure.EMPTY.getView() &&
-                        cellsOfOwnFigures.getCells()[beginY][beginX + 1] == Figure.EMPTY.getView()) {
+            if (y == 8 && x == 0) {
+                if (cellsOfOwnFigures.getCells()[y - 1][x] == Figure.EMPTY.getView() &&
+                        cellsOfOwnFigures.getCells()[y - 1][x + 1] == Figure.EMPTY.getView() &&
+                        cellsOfOwnFigures.getCells()[y][x + 1] == Figure.EMPTY.getView()) {
                     return true;
                 }
             }
-            if (beginY == 8 && beginX != 0 && beginX != 8) {
-                if (cellsOfOwnFigures.getCells()[beginY][beginX - 1] == Figure.EMPTY.getView() &&
-                        cellsOfOwnFigures.getCells()[beginY - 1][beginX - 1] == Figure.EMPTY.getView() &&
-                        cellsOfOwnFigures.getCells()[beginY - 1][beginX] == Figure.EMPTY.getView() &&
-                        cellsOfOwnFigures.getCells()[beginY - 1][beginX + 1] == Figure.EMPTY.getView() &&
-                        cellsOfOwnFigures.getCells()[beginY][beginX + 1] == Figure.EMPTY.getView()) {
+            if (y == 8 && x != 0 && x != 8) {
+                if (cellsOfOwnFigures.getCells()[y][x - 1] == Figure.EMPTY.getView() &&
+                        cellsOfOwnFigures.getCells()[y - 1][x - 1] == Figure.EMPTY.getView() &&
+                        cellsOfOwnFigures.getCells()[y - 1][x] == Figure.EMPTY.getView() &&
+                        cellsOfOwnFigures.getCells()[y - 1][x + 1] == Figure.EMPTY.getView() &&
+                        cellsOfOwnFigures.getCells()[y][x + 1] == Figure.EMPTY.getView()) {
                     return true;
                 }
             }
-            if (beginY == 8 && beginX == 8) {
-                return cellsOfOwnFigures.getCells()[beginY][beginX - 1] == Figure.EMPTY.getView() &&
-                        cellsOfOwnFigures.getCells()[beginY - 1][beginX - 1] == Figure.EMPTY.getView() &&
-                        cellsOfOwnFigures.getCells()[beginY - 1][beginX] == Figure.EMPTY.getView();
+            if (y == 8 && x == 8) {
+                return cellsOfOwnFigures.getCells()[y][x - 1] == Figure.EMPTY.getView() &&
+                        cellsOfOwnFigures.getCells()[y - 1][x - 1] == Figure.EMPTY.getView() &&
+                        cellsOfOwnFigures.getCells()[y - 1][x] == Figure.EMPTY.getView();
             }
         }
         return false;
     }
+
 
     public GameResult makeShot(int x, int y, String coordinateOfCell) {
         if (cellsOfOwnFigures.getCells()[y][x] == Figure.DESTROY.getView() ||
