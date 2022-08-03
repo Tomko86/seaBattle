@@ -82,8 +82,8 @@ public class Player {
      * If the user enters the coordinates of the ship in such a way that the cell in which he is trying
      * to install the ship will be empty and neighboring cells will be empty as well, the method will return true.
      *
-     * @param y - is a value from range <b>1 - 9</b>.
-     * @param x - is a value from range <b>A, B, C... J</b>
+     * @param y is a value from range <b>1 - 9</b>.
+     * @param x is a value from range <b>A, B, C... J</b>
      * @return <b>true</b> or <b>false</b>
      */
     private boolean isCheckXAndY(int y, int x) {

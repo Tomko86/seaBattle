@@ -11,7 +11,7 @@ public class Game {
     private static int CURSOR = new Random().nextInt(2);
     private static final SaveLoadGame saveLoadGame = new SaveLoadGame();
 
-    public static void main(String[] args) {
+    public static void play() {
         log.info("====== Welcome to Sea Battle! ======");
         Player onePlayer, twoPlayer, currentPlayer;
         if (saveLoadGame.loadGame() != null) {
@@ -43,8 +43,6 @@ public class Game {
             char[] getCoordinatesOfCell = shot.toCharArray();
             int x = Canvas.getVALIDATE_LITERAL_CHARACTER().indexOf(getCoordinatesOfCell[0]);
             int y = Character.getNumericValue(getCoordinatesOfCell[1]) - 1;
-
-            // Necessary to check the method!!!
             if (isCoordinatesValid(LENGTH_COORDINATE_SHOT, shot)) {
                 GameResult result = currentPlayer == onePlayer ? twoPlayer.makeShot(x, y, shot) : onePlayer.makeShot(x, y, shot);
                 if (result.isGameEnded()) {
@@ -74,6 +72,12 @@ public class Game {
         }
     }
 
+    /**
+     * This method checks coordinates of ship and saves them in the player's field, if there are no ships already installed at a distance of one cell.
+     *
+     * @param player - is a value of player who tries to set a ship on canvas
+     * @param coordinate - is a value of new ship
+     */
     private static void fillNearbyCells(Player player, String coordinate) {
         String[] arrayCoordinate = coordinate.split(",");
         for (String addressCell : arrayCoordinate) {
@@ -198,7 +202,6 @@ public class Game {
                 if (isCoordinatesValid(Ship.getFOUR_DECK(), coordinates)) {
                     if (isCoordinateOrder(coordinates)) {
                         player.getShips().add(new Ship(coordinates, Ship.getFOUR_DECK()));
-                        //player.getShips()[i] = new Ship(coordinates, Ship.getFOUR_DECK());
                         if (player.addShipsOnCanvas(coordinates)) {
                             player.getCellsOfOwnFigures().drawCanvas();
                         } else {
@@ -218,7 +221,6 @@ public class Game {
                 if (isCoordinatesValid(Ship.getTHREE_DECK(), coordinates)) {
                     if (isCoordinateOrder(coordinates)) {
                         player.getShips().add(new Ship(coordinates, Ship.getTHREE_DECK()));
-                        //player.getShips()[i] = new Ship(coordinates, Ship.getTHREE_DECK());
                         if (player.addShipsOnCanvas(coordinates)) {
                             player.getCellsOfOwnFigures().drawCanvas();
                         } else {
@@ -237,7 +239,6 @@ public class Game {
                 if (isCoordinatesValid(Ship.getTWO_DECK(), coordinates)) {
                     if (isCoordinateOrder(coordinates)) {
                         player.getShips().add(new Ship(coordinates, Ship.getTWO_DECK()));
-                        //player.getShips()[i] = new Ship(coordinates, Ship.getTWO_DECK());
                         if (player.addShipsOnCanvas(coordinates)) {
                             player.getCellsOfOwnFigures().drawCanvas();
                         } else {
@@ -255,7 +256,6 @@ public class Game {
                 coordinates = SCANNER.nextLine().toUpperCase();
                 if (isCoordinatesValid(Ship.getONE_DECK(), coordinates)) {
                     player.getShips().add(new Ship(coordinates, Ship.getONE_DECK()));
-                    //player.getShips()[i] = new Ship(coordinates, Ship.getONE_DECK());
                     if (player.addShipsOnCanvas(coordinates)) {
                         player.getCellsOfOwnFigures().drawCanvas();
                     } else {
