@@ -4,10 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="76050751-9161-4f94-81c0-329d09de2c70" name="Changes" comment="Added java docs in class Player, Ship and check some mistakes.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Application.java" afterDir="false" />
+    <list default="true" id="76050751-9161-4f94-81c0-329d09de2c70" name="Changes" comment="Added class Application.java as a point for start my program.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/spb/avenue/seaBattle/model/Bord.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/spb/avenue/seaBattle/model/Ship.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/spb/avenue/seaBattle/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Canvas.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Condition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/spb/avenue/seaBattle/ShortResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Figure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/spb/avenue/seaBattle/model/Figure.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/spb/avenue/seaBattle/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GameResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/spb/avenue/seaBattle/GameResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/spb/avenue/seaBattle/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SaveLoadGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/spb/avenue/seaBattle/SaveLoadGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Ship.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +41,14 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/spb/avenue/seaBattle/Application.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/spb/avenue/seaBattle/Game.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/spb/avenue/seaBattle/GameResult.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/spb/avenue/seaBattle/Player.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/spb/avenue/seaBattle/ShortResult.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/spb/avenue/seaBattle/model/Bord.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/spb/avenue/seaBattle/model/Figure.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/spb/avenue/seaBattle/model/Ship.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="jar://$PROJECT_DIR$/../../Program Files/Java/jdk-17.0.3.1/lib/src.zip!/java.base/java/util/Date.java" root0="SKIP_INSPECTION" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -45,23 +63,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Java/seaBattle",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Java/seaBattle&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   },
-  "keyToStringList": {
-    "ChangesTree.GroupingKeys": [
-      "module",
-      "directory"
+  &quot;keyToStringList&quot;: {
+    &quot;ChangesTree.GroupingKeys&quot;: [
+      &quot;module&quot;,
+      &quot;directory&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.avenue.java.spb.seaBattle" />
@@ -70,21 +88,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Application">
-    <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Application" />
-      <module name="seaBattle" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Game (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Game" />
-      <module name="seaBattle" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.com.spb.avenue.seaBattle.Application">
     <configuration name="Game" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.avenue.java.spb.seaBattle.Game" />
       <module name="seaBattle" />
@@ -105,13 +109,45 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="com.spb.avenue.seaBattle.Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.spb.avenue.seaBattle.Application" />
+      <module name="seaBattle" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="com.spb.avenue.seaBattle.process.Game" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.spb.avenue.seaBattle.process.Game" />
+      <module name="seaBattle" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SbServiceTest.test" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="seaBattle" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.spb.avenue.seaBattle.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.spb.avenue.seaBattle" />
+      <option name="MAIN_CLASS_NAME" value="com.spb.avenue.seaBattle.SbServiceTest" />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Application" />
-        <item itemvalue="Application.Game (1)" />
+        <item itemvalue="Application.com.spb.avenue.seaBattle.Application" />
+        <item itemvalue="TestNG.SbServiceTest.test" />
+        <item itemvalue="Application.com.spb.avenue.seaBattle.process.Game" />
         <item itemvalue="Application.Test" />
         <item itemvalue="Application.Game" />
-        <item itemvalue="Application.Game (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -222,7 +258,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658431625194</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Added class Application.java as a point for start my program.">
+      <created>1659500919326</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1659500919326</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -309,6 +352,7 @@
     <MESSAGE value="Deleted the field name from class Ship." />
     <MESSAGE value="Added the ability to save the game" />
     <MESSAGE value="Added java docs in class Player, Ship and check some mistakes." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added java docs in class Player, Ship and check some mistakes." />
+    <MESSAGE value="Added class Application.java as a point for start my program." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added class Application.java as a point for start my program." />
   </component>
 </project>

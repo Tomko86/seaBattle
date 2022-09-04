@@ -1,4 +1,7 @@
+package com.spb.avenue.seaBattle.util;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.spb.avenue.seaBattle.process.Player;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
